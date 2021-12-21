@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome1",
+  "definitions": {
+    "Welcome1": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "deck_id": {
+          "type": "string"
+        },
+        "cards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Card"
+          }
+        },
+        "remaining": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cards",
+        "deck_id",
+        "remaining",
+        "success"
+      ],
+      "title": "Welcome1"
+    },
+    "Card": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".png"
+          ]
+        },
+        "images": {
+          "$ref": "#/definitions/Images"
+        },
+        "value": {
+          "type": "string",
+          "format": "integer"
+        },
+        "suit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "image",
+        "images",
+        "suit",
+        "value"
+      ],
+      "title": "Card"
+    },
+    "Images": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "svg": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".svg"
+          ]
+        },
+        "png": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".png"
+          ]
+        }
+      },
+      "required": [
+        "png",
+        "svg"
+      ],
+      "title": "Images"
+    }
+  }
+}
